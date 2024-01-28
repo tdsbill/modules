@@ -1,6 +1,6 @@
 {
-    "name": "crater-invoice/modules",
-    "description": "Crater Module Management Package",
+    "name": "invoiceshelf/modules",
+    "description": "InvoiceShelf Module Management Package",
     "keywords": [
         "modules",
         "laravel",
