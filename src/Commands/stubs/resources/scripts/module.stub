@@ -5,8 +5,8 @@ import '../sass/module.scss'
 window.InvoiceShelf.booting((app, router) => {
   window.InvoiceShelf.addMessages(moduleLocales)
 
-  router.addRoute({
-    path: '/$LOWER_NAME$/sample-page',
+  router.addRoute('admin', {
+    path: '$LOWER_NAME$',
     component: SamplePage,
   })
 

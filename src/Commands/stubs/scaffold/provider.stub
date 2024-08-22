@@ -27,6 +27,8 @@ class $CLASS$ extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerMenu();
+        $this->registerPublicFiles();
         $this->loadMigrationsFrom(module_path($this->moduleName, '$MIGRATIONS_PATH$'));
     }
 
@@ -108,5 +110,34 @@ class $CLASS$ extends ServiceProvider
             }
         }
         return $paths;
+    }
+
+    public function registerMenu()
+    {
+        $data = [
+            'title' => '$LOWER_NAME$.$LOWER_NAME$_title',
+            'name' => '$MODULE$',
+            'link' => '/admin/$LOWER_NAME$',
+            'icon' => 'QuestionMarkCircleIcon',
+            'group' => 1,
+        ];
+
+        \Menu::make('main_menu', function ($menu) use ($data) {
+            $menu->add($data['title'], $data['link'])
+                ->data('icon', $data['icon'])
+                ->data('name', $data['name'])
+                ->data('group', $data['group']);
+        });
+    }
+
+    /**
+     * Register public files.
+     *
+     * @return void
+     */
+    protected function registerPublicFiles()
+    {
+        ModuleFacade::script('$LOWER_NAME$', __DIR__ . '/../dist/$LOWER_NAME$.umd.js');
+        ModuleFacade::style('$LOWER_NAME$', __DIR__ . '/../dist/style.css');
     }
 }
