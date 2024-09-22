@@ -1,6 +1,6 @@
 {
-    "name": "invoiceshelf/modules",
-    "description": "InvoiceShelf Module Management Package",
+    "name": "tdsbill/modules",
+    "description": "tdsbill Module Management Package",
     "keywords": [
         "modules",
         "laravel",
